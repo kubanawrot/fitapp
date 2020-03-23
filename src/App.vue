@@ -1,32 +1,46 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <div id="app" class="min-h-screen bg-gray-300">
+    <nav class="flex flex-row h-20 items-center justify-between bg-teal-800 select-none">
+      <router-link class="flex flex-row" to="/">
+        <span>
+          <img class="object-scale-down h-12 pl-8" src="./assets/logo-fit.png" alt />
+        </span>
+
+        <span class="text-4xl ml-6 text-gray-200 font-semibold">jSonFitness</span>
+      </router-link>
+      <router-link to="/">
+        <button
+          class="transition duration-300 ease-in-out mr-6 p-2 rounded-md bg-teal-800 hover:bg-teal-900 outline-none"
+        >
+          <font-awesome-icon
+            id="plus-icon"
+            class="mr-2 transition duration-300 text-orange-500"
+            icon="plus"
+          />
+          <span class="mr-1 font-semibold font-sans font-family:roboto text-gray-200">New Training</span>
+        </button>
+      </router-link>
+    </nav>
+    <router-view />
   </div>
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+button:hover #plus-icon {
+  transform: rotate(90deg);
+  color: black;
 }
 
-#nav {
-  padding: 30px;
+/* Remove blue border from css custom-styled button in Chrome
+https://stackoverflow.com/questions/20340138/remove-blue-border-from-css-custom-styled-button-in-chrome */
+
+button:active {
+  outline: none;
+  border: none;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+button:focus {
+  outline: none !important;
+  border: none !important;
 }
 </style>
